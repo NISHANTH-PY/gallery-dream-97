@@ -130,25 +130,22 @@ function Index() {
             <button
               key={image.id}
               onClick={() => openLightbox(image)}
-              className={`
-                group relative overflow-hidden rounded-xl bg-card text-left
+              className="group relative overflow-hidden rounded-xl bg-card text-left
                 shadow-[0_2px_8px_var(--gallery-shadow)]
                 transition-all duration-500 ease-out
                 hover:-translate-y-1 hover:shadow-[0_12px_32px_var(--gallery-shadow)]
-                focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background
-                ${image.aspect === "portrait" ? "row-span-2" : ""}
-              `}
+                focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
               style={{ animationDelay: `${index * 60}ms` }}
               role="listitem"
               aria-label={`Open ${image.title} in lightbox`}
             >
-              <div className={`relative overflow-hidden ${image.aspect === "portrait" ? "aspect-[3/4]" : "aspect-[4/3]"}`}>
+              <div className="relative overflow-hidden aspect-[4/3]">
                 <img
                   src={image.src}
                   alt={image.title}
                   loading="lazy"
-                  width={image.aspect === "portrait" ? 800 : 1200}
-                  height={image.aspect === "portrait" ? 1200 : 800}
+                  width={1200}
+                  height={800}
                   className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[var(--gallery-overlay)] via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
