@@ -43,7 +43,10 @@ function Index() {
       direction === "next"
         ? (currentIndex + 1) % filteredImages.length
         : (currentIndex - 1 + filteredImages.length) % filteredImages.length;
-    setLightboxImage(filteredImages[newIndex]);
+    const nextImage = filteredImages[newIndex];
+    if (nextImage) {
+      setLightboxImage(nextImage);
+    }
   };
 
   useEffect(() => {
